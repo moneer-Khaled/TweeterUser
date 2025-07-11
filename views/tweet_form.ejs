@@ -1,0 +1,37 @@
+<form action="<%= action %>" method="POST" class="mt-4">
+
+  <!-- Title Field -->
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input 
+      type="text" 
+      id="title" 
+      name="title" 
+      class="form-control" 
+      value="<%= tweet.title || '' %>" 
+      required 
+      minlength="21"
+      placeholder="Enter title (min 21 characters)"
+    >
+  </div>
+
+  <!-- Tweet Field -->
+  <div class="mb-3">
+    <label for="tweet" class="form-label">Tweet</label>
+    <textarea 
+      id="tweet" 
+      name="tweet" 
+      class="form-control" 
+      rows="3" 
+      maxlength="50" 
+      required 
+      placeholder="Enter tweet (max 50 characters)"
+    ><%= tweet.tweet || '' %></textarea>
+  </div>
+
+  
+  <button type="submit" class="btn btn-primary">
+    <%= buttonText %>
+  </button>
+
+</form>

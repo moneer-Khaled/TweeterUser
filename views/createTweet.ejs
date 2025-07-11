@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Tweet</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <header class="bg-primary text-white py-3 mb-4">
+  <div class="container">
+    <h1>Welcome To Tweeter</h1>
+  </div>
+</header>
+
+  <div class="container mt-4">
+    <h2>Add New Tweet</h2>
+    <form action="/tweet/add" method="POST">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          name="title"
+          minlength="21"
+          required
+          value="<%= data.title || '' %>"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="tweet" class="form-label">Tweet</label>
+        <textarea
+          class="form-control"
+          id="tweet"
+          name="tweet"
+          maxlength="50"
+          required
+          rows="3"
+        ><%= data.tweet || '' %></textarea>
+      </div>
+      <button  href="/tweet"type="submit" class="btn btn-primary">Submit</button>
+      <a href="/tweet" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+
+</body>
+</html>

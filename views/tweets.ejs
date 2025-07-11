@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>All Tweets</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <header class="bg-primary text-white py-3 mb-4">
+  <div class="container">
+    <h1>Welcome To Tweeter</h1>
+  </div>
+</header>
+
+  <div class="container mt-4">
+    <a href="/tweet/add" class="btn btn-success mb-3">Add Tweet</a>
+
+    <% if (tweets.length === 0) { %>
+      <p>No tweets found.</p>
+    <% } else { %>
+      <% tweets.forEach(tweet => { %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title"><%= tweet.title %></h5>
+            <p class="card-text"><%= tweet.tweet %></p>
+            <p class="text-muted"><%= tweet.createdAt.toDateString() %></p>
+            <a href="/tweet/<%= tweet._id %>" class="btn btn-outline-primary btn-sm">See more</a>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+
+</body>
+</html>
